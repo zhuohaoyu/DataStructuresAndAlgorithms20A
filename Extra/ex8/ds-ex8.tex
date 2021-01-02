@@ -1,0 +1,123 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass{article}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{ctex}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{unicode-math}
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\title{数据结构与算法I 思考题8}
+\author{2019201409 于倬浩}
+
+\begin{document}
+\maketitle
+
+\hypertarget{header-n4}{%
+\subsection{16.2-6}\label{header-n4}}
+
+将分数背包算法从\(\Theta(nlgn)\)优化到\(\Theta(n)\)的时间复杂度。
+
+首先，改进的算法一定不能改变贪心算法的贪心策略，因此采用和\(\Theta(nlgn)\)算法相同的贪心策略，显然不需要赘述原算法贪心策略的正确性。
+
+考虑原算法的瓶颈，在于将所有物品按照平均值（价值/重量）从大到小排序，排序的过程需要\(\Theta(nlgn)\)的复杂度，而贪心策略本身其实就是选择平均值最大的几个物品，且最后一个物品可能选到分数份。
+
+因此，考虑使用之前学过的最坏时间复杂度\(\Theta(n)\)的线性选择中位数算法\texttt{select()}进行优化，目的依旧是找出平均值最大的若干个物品来填满背包。
+
+首先，对于子问题\texttt{FractionalKnapsack(L,\ R,\ weight)}，表示只选择下标（可能被重标号）{[}L,R{]}范围内的物品，且背包容量为weight的最优解。首先线性选出当前区间的平均值的中位数，统计平均值大于等于中位数的物品的重量之和。如果重量和小于当前的上限，说明最终的答案取到的最小平均值一定更小，因此解为子问题\texttt{FractionalKnapsack(L,\ p\ -\ 1,\ weight\ -\ curweight)}的解与这些平均值大于中位数的物品的并集；如果重量和大于等于当前的上限，说明最终答案取到的最小平均值更大，也就是这些物品的一个子集，因此为子问题\texttt{FractionalKnapsack(p\ +\ 1,\ R,\ weight)}的解。边界条件是当区间长度为1时，需要返回\texttt{item{[}L{]}.avg\ *\ min(weight,\ item{[}L{]}.weight)}，表示最后一个物品可以选择分数份。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{double}\NormalTok{ FractionalKnapsack(}\DataTypeTok{int}\NormalTok{ L, }\DataTypeTok{int}\NormalTok{ R, }\DataTypeTok{double}\NormalTok{ weight) \{}
+    \ControlFlowTok{if}\NormalTok{(weight <= }\DecValTok{0}\NormalTok{) }\ControlFlowTok{return} \DecValTok{0}\NormalTok{; }\CommentTok{//边界：背包已满}
+    \ControlFlowTok{if}\NormalTok{(L == R) }\ControlFlowTok{return}\NormalTok{ item[L].avg * min(weight, item[L].weight); }
+    \CommentTok{//边界：需要切分的最后一个物品}
+    \DataTypeTok{int}\NormalTok{ p = select(L, R); }
+    \CommentTok{//线性选择算法，找到区间[L,R]的中位数对应下标，且保证[L,p]都<=中位数，[p+1,R]>=中位数}
+    \DataTypeTok{double}\NormalTok{ curweight = }\DecValTok{0}\NormalTok{, curvalue = }\DecValTok{0}\NormalTok{;}
+    \ControlFlowTok{for}\NormalTok{(}\DataTypeTok{int}\NormalTok{ i = p; i <= R; ++i) \{ }\CommentTok{//计算平均值大于中位数的物品的重量、价值之和}
+\NormalTok{        curweight += item[i].weight;}
+\NormalTok{        curvalue += item[i].value;}
+\NormalTok{    \}}
+    \ControlFlowTok{if}\NormalTok{(curweight <= weight) }\CommentTok{//含义如上}
+        \ControlFlowTok{return}\NormalTok{ curvalue + FractionalKnapsack(L, p - }\DecValTok{1}\NormalTok{, weight - curweight);}
+    \ControlFlowTok{else} 
+        \ControlFlowTok{return}\NormalTok{ FractionalKnapsack(p + }\DecValTok{1}\NormalTok{, R, weight);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{document}
